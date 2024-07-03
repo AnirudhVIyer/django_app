@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h2>Welcome {{ user.name }}</h2>
+    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'upload_photo' %}">Upload</a>
+
+    <h3>Your photos</h3>
+    <a href="{% url 'photo_list' %}">View</a>
+
+</body>
+</html>

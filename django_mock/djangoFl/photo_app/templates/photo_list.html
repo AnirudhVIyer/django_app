@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Photos</title>
+</head>
+<body>
+    <h2>Your Photos</h2>
+    <ul>
+        {% for photo in photos %}
+            <li>
+                <img src="{{ photo.image.url }}" alt="{{ photo.description }}" style="max-width: 200px; max-height: 200px;">
+                <p>{{ photo.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'upload_photo' %}">Upload New Photo</a> 
+    <a href="{% url 'user_home' %}">Home</a>
+</body>
+</html>
