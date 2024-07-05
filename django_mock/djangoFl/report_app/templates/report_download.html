@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Upload Photo</title>
+    <title>Generate Report</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -9,21 +9,16 @@
             padding: 20px;
             background-color: #f8f9fa;
         }
-        h2 {
+        h1 {
             color: #343a40;
         }
-        form {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin-bottom: 20px;
+        .buttons {
+            margin-top: 20px;
         }
-        button, a.button {
+        a.button {
             display: inline-block;
             padding: 10px 20px;
-            margin-top: 10px;
+            margin: 10px 0;
             color: #ffffff;
             background-color: #007bff;
             border: none;
@@ -32,23 +27,15 @@
             cursor: pointer;
             font-size: 14px;
         }
-        button:hover, a.button:hover {
+        a.button:hover {
             background-color: #0056b3;
-        }
-        .buttons {
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h2>Upload Photo</h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
-    </form>
+    <h1>Download Report</h1>
     <div class="buttons">
-        <a href="{% url 'photo_list' %}" class="button">Back to Photo List</a>
+        <a href="{% url 'generate_pdf' %}" class="button">Download PDF Report</a>
         <a href="{% url 'user_home' %}" class="button">Home</a>
     </div>
 </body>

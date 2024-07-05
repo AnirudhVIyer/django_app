@@ -2,18 +2,80 @@
 <html>
 <head>
     <title>Your Photos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h2 {
+            color: #343a40;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            display: block;
+            margin-bottom: 10px;
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 4px;
+        }
+        p {
+            margin: 5px 0;
+            color: #495057;
+        }
+        form {
+            display: inline-block;
+        }
+        button, a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover, a.button:hover {
+            background-color: #0056b3;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <h2>Your Photos</h2>
     <ul>
         {% for photo in photos %}
             <li>
-                <img src="{{ photo.image.url }}" alt="{{ photo.description }}" style="max-width: 200px; max-height: 200px;">
+                <img src="{{ photo.image.url }}" alt="{{ photo.description }}">
+                <p>Image URL: <a href="{{ photo.image.url }}">{{ photo.image.url }}</a></p>
                 <p>{{ photo.description }}</p>
+                <form action="{% url 'delete_photo' photo.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
             </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'upload_photo' %}">Upload New Photo</a> 
-    <a href="{% url 'user_home' %}">Home</a>
+    <div class="buttons">
+        <a href="{% url 'upload_photo' %}" class="button">Upload New Photo</a>
+        <a href="{% url 'user_home' %}" class="button">Home</a>
+    </div>
 </body>
 </html>
+

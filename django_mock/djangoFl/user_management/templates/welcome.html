@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .banner {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        h2 {
+            color: #343a40;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        a.button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
+    <div class="banner">BDR APP</div>
     <h2>Welcome</h2>
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'register' %}">Register</a>
+    <div class="buttons">
+        <a href="{% url 'login' %}" class="button">Login</a>
+        <a href="{% url 'register' %}" class="button">Register</a>
+    </div>
 </body>
 </html>
